@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque | Apolo Carros Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h1>Apolo Carros</h1>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav class="admin-menu">
+                <ul>
+                    <li><a href="/html/estoque.html"><i class="fas fa-car"></i> Estoque</a></li>
+                    <li><a href="/html/clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li class="active"><a href="/html/painel_de_vendas.html"><i class="fas fa-chart-line"></i> Vendas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <h2><i class="fas fa-car"></i> Estoque de Veículos</h2>
+                </div>
+                <div class="header-right">
+                    <div class="user-dropdown">
+                        <img src="/img/avatar.jpg" alt="Admin">
+                        <span>Admin <i class="fas fa-chevron-down"></i></span>
+                        <div class="dropdown-menu">
+                            <a href="#"><i class="fas fa-user"></i> Perfil</a>
+                            <a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <div class="toolbar">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar veículo...">
+                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    </div>
+                    <a href="novo.html" class="btn btn-primary"><i class="fas fa-plus"></i> Adicionar Veículo</a>
+                </div>
+
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Modelo</th>
+                                    <th>Ano</th>
+                                    <th>KM</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sedan X</td>
+                                    <td>2021</td>
+                                    <td>95.000</td>
+                                    <td><span class="badge success">Disponível</span></td>
+                                    <td class="actions">
+                                        <a href="/html/editar_estoque.html" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sedan X</td>
+                                    <td>2021</td>
+                                    <td>95.000</td>
+                                    <td><span class="badge success">Disponível</span></td>
+                                    <td class="actions">
+                                        <a href="/html/editar_estoque.html" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sedan X</td>
+                                    <td>2021</td>
+                                    <td>95.000</td>
+                                    <td><span class="badge warning">Reservado</span></td>
+                                    <td class="actions">
+                                        <a href="/html/editar_estoque.html" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="btn btn-outline" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn btn-outline active">1</button>
+                        <button class="btn btn-outline">2</button>
+                        <button class="btn btn-outline">3</button>
+                        <button class="btn btn-outline"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>

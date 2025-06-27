@@ -3,209 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Vendas | Apolo Carros</title>
+    <title>Vendas | Apolo Carros Admin</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/vendas.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
                 <h1>Apolo Carros</h1>
+                <p>Painel Administrativo</p>
             </div>
-            <nav class="nav">
+            <nav class="admin-menu">
                 <ul>
-                    <li><a href="/html/index.html">Início</a></li>
-                    <li><a href="/html/carros.html">Comprar</a></li>
-                    <li><a href="/html/anunciar.html">Vender</a></li>
-                    <li><a href="/html/financeiro.html">Financiamento</a></li>
-                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="/html/estoque.html"><i class="fas fa-car"></i> Estoque</a></li>
+                    <li><a href="/html/clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li class="active"><a href="/html/painel_de_vendas.html"><i class="fas fa-chart-line"></i> Vendas</a></li>
                 </ul>
             </nav>
-            <div class="auth-buttons">
-                <a href="/html/login.html" class="btn btn-outline">Entrar</a>
-            </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
+        </aside>
 
-    <main class="main-content">
-        <div class="breadcrumb">
-            <div class="container">
-                <a href="/html/index.html">Home</a> &gt; <span>Painel de Vendas</span>
-            </div>
-        </div>
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <h2><i class="fas fa-chart-line"></i> Painel de Vendas</h2>
+                </div>
+                <div class="header-right">
+                    <div class="user-dropdown">
+                        <img src="/img/avatar.jpg" alt="Admin">
+                        <span>Admin <i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+            </header>
 
-        <section class="sales-dashboard">
-            <div class="container">
-                <h1>Painel de Vendas</h1>
-                
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar Clientes ou Veículos...">
-                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                </div>
-                
-                <div class="sales-stats">
-                    <div class="stat-card">
-                        <h3>Veículos no estoque</h3>
-                        <p class="stat-value">15</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Faturamento</h3>
-                        <p class="stat-value">R$ 350K</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Clientes Atendidos</h3>
-                        <p class="stat-value">42</p>
-                    </div>
-                </div>
-                
-                <div class="sales-tabs">
-                    <button class="tab-btn active" data-tab="sales">Vendas</button>
-                    <button class="tab-btn" data-tab="clients">Clientes</button>
-                    <button class="tab-btn" data-tab="inventory">Estoque</button>
-                </div>
-                
-                <div class="tab-content active" id="sales-tab">
-                    <table class="sales-table">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Veículo</th>
-                                <th>Data</th>
-                                <th>Parcelas</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Carlos Silva</td>
-                                <td>Sedan X</td>
-                                <td>02/03/2019</td>
-                                <td>48x R$ 2.000</td>
-                                <td>
-                                    <button class="btn btn-outline btn-sm">Editar</button>
-                                    <button class="btn btn-danger btn-sm">Excluir</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Carlos Silva</td>
-                                <td>Sedan X</td>
-                                <td>02/03/2019</td>
-                                <td>48x R$ 2.000</td>
-                                <td>
-                                    <button class="btn btn-outline btn-sm">Editar</button>
-                                    <button class="btn btn-danger btn-sm">Excluir</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="tab-content" id="clients-tab">
-                    <table class="clients-table">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Telefone</th>
-                                <th>Última compra</th>
-                                <th>Interesse Atual</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Carlos Silva</td>
-                                <td>(11) 9999-9999</td>
-                                <td>02/03/2019</td>
-                                <td>Sedan X</td>
-                                <td>
-                                    <button class="btn btn-outline btn-sm">Editar</button>
-                                    <button class="btn btn-danger btn-sm">Excluir</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Carlos Silva</td>
-                                <td>(11) 9999-9999</td>
-                                <td>02/03/2019</td>
-                                <td>Sedan X</td>
-                                <td>
-                                    <button class="btn btn-outline btn-sm">Editar</button>
-                                    <button class="btn btn-danger btn-sm">Excluir</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="tab-content" id="inventory-tab">
-                    <div class="inventory-grid">
-                        <div class="inventory-item">
-                            <h3>Sedan X</h3>
-                            <p>2021 • 95.000 km</p>
-                            <p class="status available">Disponível</p>
-                            <div class="inventory-actions">
-                                <button class="btn btn-outline btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
+            <div class="admin-content">
+                <div class="sales-overview">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: rgba(52, 152, 219, 0.1); color: #3498db;">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Veículos Vendidos</h3>
+                                <p class="stat-value">42</p>
                             </div>
                         </div>
-                        <div class="inventory-item">
-                            <h3>Sedan X</h3>
-                            <p>2021 • 95.000 km</p>
-                            <p class="status available">Disponível</p>
-                            <div class="inventory-actions">
-                                <button class="btn btn-outline btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: rgba(46, 204, 113, 0.1); color: #2ecc71;">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Faturamento</h3>
+                                <p class="stat-value">R$ 350K</p>
                             </div>
                         </div>
-                        <div class="inventory-item">
-                            <h3>Sedan X</h3>
-                            <p>2021 • 95.000 km</p>
-                            <p class="status available">Disponível</p>
-                            <div class="inventory-actions">
-                                <button class="btn btn-outline btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Vendas Mensais</h3>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="height: 30%;" data-month="Jan"></div>
+                                <div class="chart-bar" style="height: 45%;" data-month="Fev"></div>
+                                <div class="chart-bar" style="height: 60%;" data-month="Mar"></div>
+                                <div class="chart-bar" style="height: 75%;" data-month="Abr"></div>
+                                <div class="chart-bar" style="height: 90%;" data-month="Mai"></div>
+                                <div class="chart-bar" style="height: 65%;" data-month="Jun"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="sales-chart">
-                    <h2>Vendas mensais</h2>
-                    <div class="chart-container">
-                        <div class="chart-bar" style="height: 30%;" data-month="Janeiro"></div>
-                        <div class="chart-bar" style="height: 45%;" data-month="Fevereiro"></div>
-                        <div class="chart-bar" style="height: 60%;" data-month="Março"></div>
-                        <div class="chart-bar" style="height: 75%;" data-month="Abril"></div>
-                        <div class="chart-bar" style="height: 90%;" data-month="Maio"></div>
-                        <div class="chart-bar" style="height: 65%;" data-month="Junho"></div>
-                        <div class="chart-bar" style="height: 40%;" data-month="Julho"></div>
-                    </div>
-                </div>
             </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-section">
-                <h3>Apolo Carros</h3>
-                <p>Encontre o carro dos seus sonhos com as melhores condições.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>contato@apolocarros.com.br</p>
-                <p>(11) 9999-9999</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2025 Apolo Carros. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+        </main>
+    </div>
 
     <script src="/js/main.js"></script>
+    <script src="/js/admin.js"></script>
 </body>
 </html>
