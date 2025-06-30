@@ -1,3 +1,44 @@
+// =============================================
+// SUMÁRIO DO CÓDIGO JAVASCRIPT
+// =============================================
+
+/*
+1. MENU MOBILE (linhas X-X)
+   - Manipula: .mobile-menu, .nav, .auth-buttons
+   - Páginas: Todas (presente no header de todas)
+   - Função: Alterna visibilidade do menu em mobile
+
+2. GALERIA DE IMAGENS (linhas X-X)
+   - Manipula: .thumbnail, .main-image img
+   - Páginas: detalhes.html
+   - Função: Troca imagem principal ao clicar em miniaturas
+
+3. UPLOAD DE IMAGENS (linhas X-X)
+   - Manipula: .upload-area, #car-images, .preview-grid
+   - Páginas: anunciar.html
+   - Função: Pré-visualização de imagens selecionadas
+
+4. CALCULADORA DE FINANCIAMENTO (linhas X-X)
+   - Manipula: #calculate, #result, #car-value, #down-payment, #term
+   - Páginas: financeiro.html
+   - Função: Calcula parcelas de financiamento
+
+5. ABAS DO PAINEL (linhas X-X)
+   - Manipula: .tab-btn, .tab-content
+   - Páginas: anuncios.html, favoritos.html, usuario.html
+   - Função: Alterna entre abas de conteúdo
+
+6. BOTÃO DE FAVORITOS (linhas X-X)
+   - Manipula: .favorite, .remove-favorite, .fa-heart
+   - Páginas: carros.html, detalhes.html, favoritos.html
+   - Função: Gerencia favoritos (alterna estado/estilo)
+
+7. INICIALIZAÇÃO GERAL (linhas X-X)
+   - Manipula: #current-year
+   - Páginas: Todas
+   - Função: Inicializa todos os componentes e atualiza ano no footer
+*/
+
 // -----------------------------
 // MENU MOBILE
 // -----------------------------
@@ -197,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =============================================
-// Validação do Formulário de Contato
+// Validação do Formulário de Contato 
 // =============================================
 
 function setupContactForm() {
