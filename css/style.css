@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+/* :root é um seletor CSS que representa o elemento raiz do documento HTML */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
