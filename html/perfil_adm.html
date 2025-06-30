@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | Apolo Carros Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h1>Apolo Carros</h1>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav class="admin-menu">
+                <ul>
+                    <li><a href="/html/estoque.html"><i class="fas fa-car"></i> Estoque</a></li>
+                    <li><a href="/html/clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li class="active"><a href="/html/painel_de_vendas.html"><i class="fas fa-chart-line"></i> Vendas</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-user-cog"></i> Meu Perfil</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <h2><i class="fas fa-user-cog"></i> Meu Perfil</h2>
+                </div>
+                <div class="header-right">
+                    <div class="user-dropdown">
+                        <img src="/img/avatar.jpg" alt="Admin">
+                        <span>Admin <i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="avatar-upload">
+                            <img src="/img/avatar.jpg" alt="Foto do Admin" id="profileAvatar">
+                            <label for="avatarInput" class="btn-upload">
+                                <i class="fas fa-camera"></i> Alterar
+                            </label>
+                            <input type="file" id="avatarInput" accept="image/*">
+                        </div>
+                        <h3>Administrador</h3>
+                        <p>admin@apolocarros.com.br</p>
+                    </div>
+
+                    <form class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" value="Administrador Apolo">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" value="admin@apolocarros.com.br">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" value="(11) 99999-9999">
+                            </div>
+                            <div class="form-group">
+                                <label for="cargo">Cargo</label>
+                                <input type="text" id="cargo" value="Administrador Geral" readonly>
+                            </div>
+                        </div>
+
+                        <h3 class="section-title">Alterar Senha</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="senha-atual">Senha Atual</label>
+                                <input type="password" id="senha-atual">
+                            </div>
+                            <div class="form-group">
+                                <label for="nova-senha">Nova Senha</label>
+                                <input type="password" id="nova-senha">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

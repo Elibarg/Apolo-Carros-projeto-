@@ -43,16 +43,21 @@
 // MENU MOBILE
 // -----------------------------
 function setupMobileMenu() {
+    // Seleciona elementos do DOM usando querySelector (pega o primeiro elemento com a classe)
     const mobileMenuBtn = document.querySelector('.mobile-menu'); // Botão de menu mobile (ícone ☰)
     const nav = document.querySelector('.nav'); // Menu de navegação
     const authButtons = document.querySelector('.auth-buttons'); // Botões de login/cadastro
 
-    // Se os elementos existem, adiciona o evento de clique
+    // Verifica se os elementos existem antes de adicionar eventos
     if (mobileMenuBtn && nav) {
+        // Adiciona um event listener para o evento de clique
         mobileMenuBtn.addEventListener('click', () => {
-            nav.classList.toggle('show'); // Alterna a visibilidade do menu
+            // Alterna a classe 'show' no menu de navegação (se tiver, remove; se não tiver, adiciona)
+            nav.classList.toggle('show');
+            
+            // Se existirem botões de autenticação, alterna a classe 'show' neles também
             if (authButtons) {
-                authButtons.classList.toggle('show'); // Alterna os botões de autenticação também
+                authButtons.classList.toggle('show');
             }
         });
     }
@@ -62,15 +67,20 @@ function setupMobileMenu() {
 // GALERIA DE IMAGENS (trocar imagem principal ao clicar nas miniaturas)
 // -----------------------------
 function setupImageGallery() {
-    const thumbnails = document.querySelectorAll('.thumbnail'); // Miniaturas clicáveis
-    const mainImage = document.querySelector('.main-image img'); // Imagem grande principal
+    // Seleciona todas as miniaturas (querySelectorAll retorna NodeList)
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    // Seleciona a imagem principal
+    const mainImage = document.querySelector('.main-image img');
 
+    // Verifica se existem miniaturas e imagem principal
     if (thumbnails.length && mainImage) {
+        // Para cada miniatura, adiciona um evento de clique
         thumbnails.forEach(thumb => {
             thumb.addEventListener('click', () => {
+                // Pega a tag img dentro da miniatura
                 const thumbImg = thumb.querySelector('img');
                 if (thumbImg) {
-                    // Troca os `src` das imagens
+                    // Troca os src das imagens (principal e miniatura)
                     const tempSrc = mainImage.src;
                     mainImage.src = thumbImg.src;
                     thumbImg.src = tempSrc;
@@ -79,52 +89,60 @@ function setupImageGallery() {
         });
     }
 }
-
 // -----------------------------
 // UPLOAD DE IMAGENS (com pré-visualização)
 // -----------------------------
 function setupImageUpload() {
-    const uploadArea = document.querySelector('.upload-area'); // Área clicável
-    const fileInput = document.querySelector('#car-images');   // Input invisível de arquivos
-    const previewGrid = document.querySelector('.preview-grid'); // Onde as imagens vão aparecer
+    // Seleciona elementos do DOM
+    const uploadArea = document.querySelector('.upload-area');
+    const fileInput = document.querySelector('#car-images');
+    const previewGrid = document.querySelector('.preview-grid');
 
     if (uploadArea && fileInput && previewGrid) {
-        // Ao clicar na área, simula clique no input de arquivos
+        // Quando clicar na área de upload, simula clique no input file
         uploadArea.addEventListener('click', () => {
-            fileInput.click();
+            fileInput.click(); // Dispara o clique programático
         });
 
-        // Quando arquivos são selecionados
+        // Quando arquivos forem selecionados
         fileInput.addEventListener('change', (e) => {
+            // Pega a lista de arquivos selecionados
             const files = e.target.files;
-            previewGrid.innerHTML = ''; // Limpa previews anteriores
+            // Limpa o conteúdo anterior do preview
+            previewGrid.innerHTML = '';
 
+            // Itera sobre os arquivos (limitado a 12)
             for (let i = 0; i < files.length; i++) {
-                if (i >= 12) break; // Limita a 12 imagens
+                if (i >= 12) break;
 
+                // Cria um FileReader para ler o conteúdo do arquivo
                 const reader = new FileReader();
+                // Define o que acontece quando o arquivo terminar de carregar
                 reader.onload = (event) => {
+                    // Cria um container para a pré-visualização
                     const previewItem = document.createElement('div');
                     previewItem.className = 'preview-item';
 
-                    // Cria imagem com o conteúdo carregado
+                    // Cria a imagem de preview
                     const img = document.createElement('img');
-                    img.src = event.target.result;
+                    img.src = event.target.result; // Define o src como o conteúdo lido
 
-                    // Botão de remover imagem
+                    // Cria botão de remover
                     const removeBtn = document.createElement('span');
                     removeBtn.className = 'remove-image';
-                    removeBtn.innerHTML = '&times;';
+                    removeBtn.innerHTML = '&times;'; // Adiciona um "X"
+                    // Adiciona evento de clique para remover o preview
                     removeBtn.addEventListener('click', () => {
-                        previewItem.remove(); // Remove a imagem da visualização
+                        previewItem.remove();
                     });
 
-                    // Adiciona imagem + botão à grade de preview
+                    // Adiciona elementos ao DOM
                     previewItem.appendChild(img);
                     previewItem.appendChild(removeBtn);
                     previewGrid.appendChild(previewItem);
                 };
-                reader.readAsDataURL(files[i]); // Lê o conteúdo da imagem
+                // Inicia a leitura do arquivo como URL de dados
+                reader.readAsDataURL(files[i]);
             }
         });
     }
@@ -134,16 +152,19 @@ function setupImageUpload() {
 // CALCULADORA DE FINANCIAMENTO
 // -----------------------------
 function setupFinanceCalculator() {
-    const calculateBtn = document.getElementById('calculate'); // Botão de calcular
-    const resultDiv = document.getElementById('result');       // Div com resultado
+    // Seleciona elementos pelo ID
+    const calculateBtn = document.getElementById('calculate');
+    const resultDiv = document.getElementById('result');
 
     if (calculateBtn && resultDiv) {
+        // Adiciona evento de clique ao botão calcular
         calculateBtn.addEventListener('click', () => {
+            // Pega valores dos inputs e converte para números (com fallback para 0)
             const carValue = parseFloat(document.getElementById('car-value').value) || 0;
             const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
             const term = parseInt(document.getElementById('term').value) || 48;
 
-            // Validações básicas
+            // Validações
             if (carValue <= 0) {
                 alert('Por favor, insira um valor válido para o carro.');
                 return;
@@ -154,17 +175,19 @@ function setupFinanceCalculator() {
                 return;
             }
 
-            // Cálculo de financiamento com juros compostos
+            // Cálculos financeiros
             const financedAmount = carValue - downPayment;
             const interestRate = 0.015; // 1.5% ao mês
+            // Fórmula de parcelas com juros compostos
             const installment = (financedAmount * interestRate) / (1 - Math.pow(1 + interestRate, -term));
             const totalAmount = installment * term;
 
-            // Atualiza o resultado na interface
+            // Atualiza a interface com os resultados
             document.getElementById('financed-amount').textContent = `R$ ${financedAmount.toFixed(2).replace('.', ',')}`;
             document.getElementById('installments').textContent = `${term}x R$ ${installment.toFixed(2).replace('.', ',')}`;
             document.getElementById('total-amount').textContent = `R$ ${totalAmount.toFixed(2).replace('.', ',')}`;
 
+            // Mostra o resultado
             resultDiv.style.display = 'block';
         });
     }
@@ -174,16 +197,20 @@ function setupFinanceCalculator() {
 // ABAS DO PAINEL (ex: Anúncios, Favoritos)
 // -----------------------------
 function setupSalesTabs() {
+    // Seleciona todos os botões de aba
     const tabBtns = document.querySelectorAll('.tab-btn');
 
     if (tabBtns.length) {
+        // Para cada botão de aba
         tabBtns.forEach(btn => {
+            // Adiciona evento de clique
             btn.addEventListener('click', () => {
-                // Remove .active de todos os botões e conteúdos
+                // Remove a classe active de todos os botões
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                // Remove a classe active de todos os conteúdos
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-                // Adiciona .active ao botão clicado
+                // Adiciona active ao botão clicado
                 btn.classList.add('active');
 
                 // Mostra o conteúdo correspondente
@@ -198,20 +225,27 @@ function setupSalesTabs() {
 // BOTÃO DE FAVORITOS (coração)
 // -----------------------------
 function setupFavorites() {
+    // Seleciona todos os botões de favorito
     const favoriteBtns = document.querySelectorAll('.favorite, .remove-favorite');
 
+    // Para cada botão
     favoriteBtns.forEach(btn => {
+        // Adiciona evento de clique
         btn.addEventListener('click', (e) => {
+            // Previne o comportamento padrão (útil se o botão estiver em um link)
             e.preventDefault();
+            // Alterna a classe active
             btn.classList.toggle('active');
 
-            // Se o botão for um ícone de coração
+            // Se for um ícone de coração (Font Awesome)
             if (btn.classList.contains('fa-heart')) {
                 if (btn.classList.contains('active')) {
-                    btn.classList.replace('far', 'fas'); // ícone cheio
-                    btn.style.color = '#e74c3c';         // cor vermelha
+                    // Muda para coração preenchido e vermelho
+                    btn.classList.replace('far', 'fas');
+                    btn.style.color = '#e74c3c';
                 } else {
-                    btn.classList.replace('fas', 'far'); // ícone contorno
+                    // Volta para coração vazio e cor padrão
+                    btn.classList.replace('fas', 'far');
                     btn.style.color = '';
                 }
             }
@@ -222,7 +256,9 @@ function setupFavorites() {
 // -----------------------------
 // INICIALIZAÇÃO GERAL
 // -----------------------------
+// Quando o DOM estiver completamente carregado
 document.addEventListener('DOMContentLoaded', () => {
+    // Chama todas as funções de setup
     setupMobileMenu();
     setupImageGallery();
     setupImageUpload();
@@ -230,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSalesTabs();
     setupFavorites();
 
-    // Atualiza automaticamente o ano no rodapé
+    // Atualiza o ano no footer automaticamente
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
@@ -242,37 +278,41 @@ document.addEventListener('DOMContentLoaded', () => {
 // =============================================
 
 function setupContactForm() {
-    // Obtém o formulário pelo ID 'contactForm'
+    // Pega o formulário pelo ID
     const contactForm = document.getElementById('contactForm');
 
-    // Se o formulário não existir na página, sai da função
+    // Se não existir, sai da função
     if (!contactForm) return;
 
-    // Adiciona um ouvinte para o evento de envio do formulário
+    // Adiciona evento de submit
     contactForm.addEventListener('submit', function(e) {
-        // Impede o envio padrão do formulário (que recarregaria a página)
+        // Previne o envio padrão do formulário
         e.preventDefault();
         
-        // Captura os valores dos campos do formulário
+        // Pega valores dos campos
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value;
 
-        // Verifica se todos os campos estão preenchidos
+        // Valida se todos os campos estão preenchidos
         if (!name || !email || !subject || !message) {
-            // Exibe um alerta se algum campo estiver vazio
             alert('Por favor, preencha todos os campos obrigatórios.');
             return;
         }
 
-        // Simula o envio da mensagem (em um caso real, usar AJAX ou fetch)
+        // Simula envio (em produção seria AJAX/fetch)
         alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
 
-        // Limpa o formulário após o envio simulado
+        // Limpa o formulário
         contactForm.reset();
     });
 }
+
+// Quando o DOM carregar, configura o formulário
+document.addEventListener('DOMContentLoaded', function() {
+    setupContactForm();
+});
 
 // Quando o conteúdo da página for carregado
 document.addEventListener('DOMContentLoaded', function() {

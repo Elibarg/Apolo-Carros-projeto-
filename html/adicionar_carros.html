@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Veículo | Apolo Carros Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h1>Apolo Carros</h1>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav class="admin-menu">
+                <ul>
+                    <li><a href="/html/estoque.html"><i class="fas fa-car"></i> Estoque</a></li>
+                    <li><a href="/html/clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li class="active"><a href="/html/painel_de_vendas.html"><i class="fas fa-chart-line"></i> Vendas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <h2><i class="fas fa-car"></i> Adicionar Veículo</h2>
+                    <nav class="breadcrumb">
+                        <a href="/html/estoque.html">Estoque</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Adicionar</span>
+                    </nav>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <form class="vehicle-form">
+                    <div class="form-section">
+                        <h3>Informações Básicas</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="marca">Marca*</label>
+                                <select id="marca" required>
+                                    <option value="">Selecione</option>
+                                    <option>Volkswagen</option>
+                                    <option>Fiat</option>
+                                    <option>Chevrolet</option>
+                                    <option>Ford</option>
+                                    <option>Honda</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="modelo">Modelo*</label>
+                                <input type="text" id="modelo" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Detalhes do Veículo</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ano">Ano*</label>
+                                <input type="number" id="ano" min="2000" max="2023" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="km">Quilometragem*</label>
+                                <input type="number" id="km" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="preco">Preço*</label>
+                                <input type="text" id="preco" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Fotos do Veículo</h3>
+                        <div class="image-upload-grid">
+                            <div class="upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Arraste imagens ou clique para selecionar</p>
+                                <input type="file" id="vehicleImages" multiple accept="image/*">
+                            </div>
+                            <div class="preview-container" id="imagePreview"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar Veículo</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

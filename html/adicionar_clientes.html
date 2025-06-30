@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Cliente | Apolo Carros Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar (mesma estrutura) -->
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <h2><i class="fas fa-user-plus"></i> Adicionar Cliente</h2>
+                    <nav class="breadcrumb">
+                        <a href="/html/clientes.html">Clientes</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Adicionar</span>
+                    </nav>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <form class="client-form">
+                    <div class="form-section">
+                        <h3>Dados Pessoais</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo*</label>
+                                <input type="text" id="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpf">CPF*</label>
+                                <input type="text" id="cpf" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-mail*</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone*</label>
+                                <input type="tel" id="telefone" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Endereço</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cep">CEP*</label>
+                                <input type="text" id="cep" required>
+                                <button type="button" class="btn-cep">Buscar</button>
+                            </div>
+                            <div class="form-group">
+                                <label for="endereco">Endereço*</label>
+                                <input type="text" id="endereco" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="numero">Número*</label>
+                                <input type="text" id="numero" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" id="complemento">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>
