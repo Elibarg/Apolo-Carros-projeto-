@@ -195,3 +195,46 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 });
+
+// =============================================
+// Validação do Formulário de Contato
+// =============================================
+
+function setupContactForm() {
+    // Obtém o formulário pelo ID 'contactForm'
+    const contactForm = document.getElementById('contactForm');
+
+    // Se o formulário não existir na página, sai da função
+    if (!contactForm) return;
+
+    // Adiciona um ouvinte para o evento de envio do formulário
+    contactForm.addEventListener('submit', function(e) {
+        // Impede o envio padrão do formulário (que recarregaria a página)
+        e.preventDefault();
+        
+        // Captura os valores dos campos do formulário
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Verifica se todos os campos estão preenchidos
+        if (!name || !email || !subject || !message) {
+            // Exibe um alerta se algum campo estiver vazio
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+
+        // Simula o envio da mensagem (em um caso real, usar AJAX ou fetch)
+        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+
+        // Limpa o formulário após o envio simulado
+        contactForm.reset();
+    });
+}
+
+// Quando o conteúdo da página for carregado
+document.addEventListener('DOMContentLoaded', function() {
+    // Chama a função para configurar o formulário de contato
+    setupContactForm();
+});
